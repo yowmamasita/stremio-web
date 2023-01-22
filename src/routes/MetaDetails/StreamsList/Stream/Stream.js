@@ -12,10 +12,7 @@ const { playViaDeepLink } = require('./external');
 const Stream = ({ className, addonName, name, description, thumbnail, progress, deepLinks, ...props }) => {
     const href = React.useMemo(() => {
         return deepLinks ?
-            typeof deepLinks.player === 'string' ?
-                deepLinks.player
-                :
-                null
+            playViaDeepLink('vlc', deepLinks)
             :
             null;
     }, [deepLinks]);
@@ -23,7 +20,7 @@ const Stream = ({ className, addonName, name, description, thumbnail, progress, 
         <Icon className={styles['placeholder-icon']} icon={'ic_broken_link'} />
     ), []);
     return (
-        <Button href={playViaDeepLink('vlc', deepLinks)} {...props} className={classnames(className, styles['stream-container'])} title={addonName}>
+        <Button href={href} {...props} className={classnames(className, styles['stream-container'])} title={addonName}>
             {
                 typeof thumbnail === 'string' && thumbnail.length > 0 ?
                     <div className={styles['thumbnail-container']} title={name || addonName}>
