@@ -31,8 +31,8 @@
             "purpose": "maskable"
         }
     ],
-    "start_url": "https://web.stremio.com",
-    "scope": "https://web.stremio.com",
+    "start_url": "https://watch.sarmiento.cc",
+    "scope": "https://watch.sarmiento.cc",
     "display": "standalone",
     "orientation": "natural",
     "theme_color": "#2a2843",
