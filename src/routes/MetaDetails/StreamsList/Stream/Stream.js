@@ -7,6 +7,7 @@ const Icon = require('@stremio/stremio-icons/dom');
 const { Button, Image, PlayIconCircleCentered } = require('stremio/common');
 const StreamPlaceholder = require('./StreamPlaceholder');
 const styles = require('./styles');
+const { playViaDeepLink } = require('./external');
 
 const Stream = ({ className, addonName, name, description, thumbnail, progress, deepLinks, ...props }) => {
     const href = React.useMemo(() => {
@@ -22,7 +23,7 @@ const Stream = ({ className, addonName, name, description, thumbnail, progress, 
         <Icon className={styles['placeholder-icon']} icon={'ic_broken_link'} />
     ), []);
     return (
-        <Button href={href} {...props} className={classnames(className, styles['stream-container'])} title={addonName}>
+        <Button href={playViaDeepLink('vlc', deepLinks.externalPlayer.href)} {...props} className={classnames(className, styles['stream-container'])} title={addonName}>
             {
                 typeof thumbnail === 'string' && thumbnail.length > 0 ?
                     <div className={styles['thumbnail-container']} title={name || addonName}>
