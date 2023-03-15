@@ -50,7 +50,8 @@ Button.propTypes = {
     disabled: PropTypes.bool,
     children: PropTypes.node,
     onKeyDown: PropTypes.func,
-    onMouseDown: PropTypes.func
+    onMouseDown: PropTypes.func,
+    onClick: PropTypes.func,
 };
 
 module.exports = Button;
