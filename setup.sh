@@ -1,4 +1,4 @@
 #!/bin/bash
 
-docker build -f sarmiento.Dockerfile -t sarmiento/stremio-web:latest .
+docker build -f sarmiento.Dockerfile -t sarmiento/appletv:latest .
 
